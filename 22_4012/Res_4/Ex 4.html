@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms using JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let phno = document.getElementById("phno").value;
+            let mail = document.getElementById("mail").value;
+            let doorno = document.getElementById("doorno").value;
+            let stname = document.getElementById("stname").value;
+            let city = document.getElementById("city").value;
+            let pin = document.getElementById("pin").value;
+            
+            let phonePattern = /^[0-9]{10}$/;
+            let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+            if (name == "" || phno == "" || mail == "" || doorno == "" || stname == "" || city == "" || pin == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            if (!phonePattern.test(phno)) {
+                alert("Please enter a valid 10-digit phone number");
+                return false;
+            }
+            if (!emailPattern.test(mail)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    
+    <h1>Tourists' Information</h1>
+    <form onsubmit="return validateForm()">
+        <h3>PERSONAL DETAILS</h3><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="phno">Phone No:</label>
+        <input type="text" id="phno" name="phno">
+
+        <label for="mail">Email ID:</label>
+        <input type="text" id="mail" name="mail">
+
+        <h3>STAY DETAILS</h3>
+        <label for="doorno">Door No:</label>
+        <input type="text" id="doorno" name="doorno">
+
+        <label for="stname">Street Name:</label>
+        <input type="text" id="stname" name="stname">
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city">
+
+        <label for="pin">Pincode:</label>
+        <input type="text" id="pin" name="pin">
+
+        <div>
+            <h3>DESTINATION DETAILS</h3><br>
+            <input type="checkbox" id="des1" name="des1" value="skydive">
+            <label for="des1">Sky Diving</label><br>
+            <input type="checkbox" id="des2" name="des2" value="dunebashing">
+            <label for="des2">Dune Bashing</label><br>
+            <input type="checkbox" id="des3" name="des3" value="hotairballon">
+            <label for="des3">Hot Air Ballon</label><br>
+            <input type="checkbox" id="des4" name="des4" value="indoorski">
+            <label for="des4">Indoor Skiing</label><br>
+            <input type="checkbox" id="des5" name="des5" value="jetski">
+            <label for="des5">Jet Skiing</label><br>
+            <input type="checkbox" id="des6" name="des6" value="xline">
+            <label for="des6">X Line</label><br>
+            <input type="checkbox" id="des7" name="des7" value="=scuba">
+            <label for="des7">Scuba Diving</label><br>
+        </div>
+
+        <h3>DATE PREFERENCE</h3><br>
+        <label for="date">Select the date to be reserved for bookings:</label>
+        <input type="date" id="date" name="date">
+
+        <h3>DETAILS</h3><br>
+        <label for="no1">Enter the Number of Adults:</label>
+        <input type="text" id="no1" name="no1">
+
+        <label for="no2">Enter the Number of Children:</label>
+        <input type="text" id="no2" name="no2">
+
+        <footer>
+            <input type="submit" value="Submit" class="button-border">
+        </footer>
+    </form>
+</body>
+</html>
