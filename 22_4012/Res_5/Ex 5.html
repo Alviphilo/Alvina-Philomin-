@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Time and Image Display</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <section class="time-display" aria-labelledby="time-header">
+            <h2 id="time-header">Current Time</h2>
+            <button id="showTimeButton">Show Current Time</button>
+            <div id="time" class="time-output"></div>
+        </section>
+        
+        <section class="image-section">
+            <img src="dxb.webp" alt="A scenic view of Dubai" class="image">
+            <p class="text">Hey there, I'm here!!</p>
+        </section>
+        
+        <div id="hoverText" class="hover-text">Hover here</div>
+    </main>
+
+    <script>
+        let interval;
+
+        document.getElementById('showTimeButton').addEventListener('click', function() {
+            clearInterval(interval);
+            updateTime();
+            interval = setInterval(updateTime, 1000);
+        });
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('time').textContent = timeString;
+        }
+
+        const hoverText = document.getElementById('hoverText');
+
+        hoverText.addEventListener('mouseenter', () => {
+            hoverText.textContent = 'Mouse In';
+        });
+
+        hoverText.addEventListener('mouseleave', () => {
+            hoverText.textContent = 'Mouse Out';
+        });
+    </script>
+</body>
+</html>
